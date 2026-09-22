@@ -223,9 +223,9 @@ function setupSimpleProduct(cfg){let items=[''];const q=$(`#${cfg.prefix}Quantit
 setupSimpleProduct({prefix:'star',name:'Estrela giratória sensorial',price:21.9,colors:[['Rosa-bebê','#f3a0bd'],['Vermelho','#b72d3b'],['Azul','#246fe5']],mainImage:'starMainImage',imageMap:{'Rosa-bebê':'star-pink','Vermelho':'star-red','Azul':'star-blue'}});
 $$('[data-star-image]').forEach(b=>b.addEventListener('click',()=>{$('#starMainImage').src=ASSETS[b.dataset.starImage];$$('[data-star-image]').forEach(x=>x.classList.toggle('on',x===b))}));
 setupSimpleProduct({prefix:'flex',name:'Estrela sensorial flexível',price:26.9,colors:[['Azul','#246fe5'],['Roxa','#6527bf'],['Vermelha','#c82435']],mainImage:'flexMainImage',imageMap:{'Azul':'flex-blue','Roxa':'flex-purple','Vermelha':'flex-red'}});
-$('[data-flex-image]').forEach(b=>b.addEventListener('click',()=>{$('#flexMainImage').src=ASSETS[b.dataset.flexImage];$('[data-flex-image]').forEach(x=>x.classList.toggle('on',x===b))}));
+$$('[data-flex-image]').forEach(b=>b.addEventListener('click',()=>{$('#flexMainImage').src=ASSETS[b.dataset.flexImage];$$('[data-flex-image]').forEach(x=>x.classList.toggle('on',x===b))}));
 const JESUS_PRICE=21.9;
-$('[data-add-jesus]').forEach(b=>b.addEventListener('click',()=>addToCart([{product:'Mini Jesus',details:'Pronta entrega\nAltura aprox.: 3,5 cm',price:JESUS_PRICE}])));
+$$('[data-add-jesus]').forEach(b=>b.addEventListener('click',()=>addToCart([{product:'Mini Jesus',details:'Pronta entrega\nAltura aprox.: 3,5 cm',price:JESUS_PRICE}])));
 function updateJesus(){const q=Number($('#jesusQuantity').value||1);$('#jesusTotal').textContent=money(q*JESUS_PRICE);$('#jesusAdd').textContent=`Adicionar ${q} ${q===1?'unidade':'unidades'} ao carrinho`}
 $('#jesusQuantity').addEventListener('change',updateJesus);
 $('#jesusAdd').addEventListener('click',()=>{const q=Number($('#jesusQuantity').value||1);addToCart(Array.from({length:q},()=>({product:'Mini Jesus',details:'Pronta entrega\nAltura aprox.: 3,5 cm',price:JESUS_PRICE})));$('#jesusQuantity').value='1';updateJesus()});
